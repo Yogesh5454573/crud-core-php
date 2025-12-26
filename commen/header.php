@@ -6,7 +6,7 @@
 				</a>
 
 			  	<a class="brand" href="index.php">
-			  		PMSyogesh
+			  		PMS
 			  	</a>
 
 				<div class="nav-collapse collapse navbar-inverse-collapse">

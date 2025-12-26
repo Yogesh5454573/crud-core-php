@@ -37,10 +37,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product - Edmin</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="images/icons/css/font-awesome.css">
+    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="asset/css/theme.css">
+    <link rel="stylesheet" href="asset/images/icons/css/font-awesome.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>

@@ -33,10 +33,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <title>Edit Category</title>
 
     <!-- Bootstrap & CSS -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="images/icons/css/font-awesome.css">
+    <link rel="stylesheet" href="../asset/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../asset/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="../asset/css/theme.css">
+    <link rel="stylesheet" href="../asset/images/icons/css/font-awesome.css">
 
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">

@@ -26,9 +26,9 @@ $stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Sub-Categories</title>
-    <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link type="text/css" href="css/theme.css" rel="stylesheet">
-    <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
+    <link type="text/css" href="../asset/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="../asset/css/theme.css" rel="stylesheet">
+    <link type="text/css" href="../asset/images/icons/css/font-awesome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -106,11 +106,11 @@ $stmt->close();
         </div>
     </div>
     <?php include '../commen/footer.php'; ?>
-    <script src="scripts/jquery-1.9.1.min.js"></script>
-    <script src="scripts/jquery-ui-1.10.1.custom.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="scripts/datatables/jquery.dataTables.js"></script>
-    <script src="scripts/common.js"></script>
+    <script src="../asset/scripts/jquery-1.9.1.min.js"></script>
+    <script src="../asset/scripts/jquery-ui-1.10.1.custom.min.js"></script>
+    <script src="../asset/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../asset/scripts/datatables/jquery.dataTables.js"></script>
+    <script src="../asset/scripts/common.js"></script>
     <script>
         $(document).ready(function() {
             $('#productsTable').DataTable();
