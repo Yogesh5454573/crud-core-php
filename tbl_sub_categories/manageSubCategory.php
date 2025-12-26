@@ -7,21 +7,16 @@ $sql = "SELECT sc.id, sc.sub_category_name, sc.s_c_description, c.category_name
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
-
 if (!$result) {
     echo "Error: " . $conn->error;
     exit;
 }
-
 $rows = $result->fetch_all(MYSQLI_ASSOC);
 $i = 1;
-
 $stmt->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
