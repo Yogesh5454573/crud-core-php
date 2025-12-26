@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include("config.php"); // Database connection
+include("../config.php"); // Database connection
 
 // Check if 'id' is set and is a valid integer
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {

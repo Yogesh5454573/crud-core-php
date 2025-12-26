@@ -1,5 +1,5 @@
 <?php
-include("config.php");
+include("../config.php");
 
 // Validate and fetch category data securely
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {

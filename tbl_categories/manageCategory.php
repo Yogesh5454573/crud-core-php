@@ -2,7 +2,7 @@
 
 session_start();
 
-include 'config.php';
+include '../config.php';
 
 $sql = "SELECT * FROM tbl_categories";
 $result = $conn->query($sql);

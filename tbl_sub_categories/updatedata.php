@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config.php';
 session_start(); // Ensure session starts at the beginning
 
 // Validate ID from GET request

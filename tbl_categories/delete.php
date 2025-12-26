@@ -1,7 +1,7 @@
 <?php
 session_start(); // Start session to store messages
 
-include("config.php");
+include("../config.php");
 
 // Check if 'id' is set and is a valid integer
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {

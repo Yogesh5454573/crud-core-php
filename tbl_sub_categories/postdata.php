@@ -1,6 +1,6 @@
 <?php
 session_start(); // Start session at the beginning
-include 'config.php'; // Include the database connection
+include '../config.php'; // Include the database connection
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validate and sanitize inputs

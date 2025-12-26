@@ -1,6 +1,5 @@
 <?php
 include '../config.php';
-// Fetch categories with error handling
 $sql = "SELECT id, category_name FROM tbl_categories";
 $result = $conn->query($sql);
 if (!$result) {

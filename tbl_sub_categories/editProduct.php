@@ -1,5 +1,5 @@
 <?php 
-include("config.php");
+include("../config.php");
 
 $categoryQuery = "SELECT id, category_name FROM tbl_categories";
 $categoryResult = $conn->query($categoryQuery);

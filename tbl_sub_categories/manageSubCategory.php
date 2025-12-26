@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php';
+include '../config.php';
 $sql = "SELECT sc.id, sc.sub_category_name, sc.s_c_description, c.category_name
         FROM tbl_sub_categories sc
         JOIN tbl_categories c ON sc.category_id = c.id";

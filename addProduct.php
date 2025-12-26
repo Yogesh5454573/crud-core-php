@@ -70,32 +70,27 @@ if (!$subCategoryResult) {
 
 <body>
     <?php include('commen/header.php'); ?>
-
     <div class="wrapper">
         <div class="container">
             <div class="row">
                 <?php include('commen/sidebar.php'); ?>
-
                 <div class="span9">
                     <div class="content">
                         <div class="module">
                             <div class="module-head">
                                 <h3>Add Product</h3>
                             </div>
-
                             <div style="text-align: right; margin-top: -35px;">
                                 <a href="manageProduct.php">
                                     <button class="btn btn-success">Manage Product</button>
                                 </a>
                             </div>
-
                             <div class="module-body">
                                 <form id="productForm" class="form-horizontal row-fluid" method="POST"
                                     action="postdata.php">
                                     <div class="control-group">
                                         <label class="control-label">Select Category</label>
                                         <div class="controls">
-                                            <!-- This should have the 'controls' class -->
                                             <select id="category_id" name="category_name" class="span8">
                                                 <option value="">-- Select Category --</option>
                                                 <?php while ($row = $categoryResult->fetch_assoc()) { ?>
@@ -188,8 +183,6 @@ if (!$subCategoryResult) {
                 errorSpan.textContent = "";
                 input.classList.remove("has-error");
             }
-
-            // Validate Required Fields
             const requiredFields = ["category_id", "sub_category_name", "product_name",
                 "product_details", "product_price"
             ];
@@ -201,9 +194,6 @@ if (!$subCategoryResult) {
                     clearError(input);
                 }
             });
-
-
-            // Validate Product Color
             const productColor = document.querySelectorAll("input[name='product_color']");
             if (![...productColor].some(radio => radio.checked)) {
                 showError(productColor[0].parentElement, "*Please select a product color.");
@@ -215,8 +205,6 @@ if (!$subCategoryResult) {
                 event.preventDefault();
             }
         });
-
-        // Remove error when user starts typing
         document.querySelectorAll("input, textarea, select").forEach(input => {
             input.addEventListener("input", function() {
                 clearError(input);
