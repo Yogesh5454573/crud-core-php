@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config/config.php';
 if (isset($_POST['category_id'])) {
     $category_name = $_POST['category_id'];
     $categoryQuery = "SELECT id FROM tbl_categories WHERE category_name = ?";

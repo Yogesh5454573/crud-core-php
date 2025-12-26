@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config/config.php';
 session_start(); 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = (int)$_GET['id']; 

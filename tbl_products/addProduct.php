@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config/config.php';
 $categoryQuery = "SELECT id, category_name FROM tbl_categories";
 $categoryResult = $conn->query($categoryQuery);
 if (!$categoryResult) {
@@ -17,10 +17,10 @@ if (!$subCategoryResult) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edmin - Add Product</title>
-    <link rel="stylesheet" type="text/css" href="asset/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="asset/bootstrap/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" type="text/css" href="asset/css/theme.css">
-    <link rel="stylesheet" type="text/css" href="asset/images/icons/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../asset/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../asset/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" type="text/css" href="../asset/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="../asset/images/icons/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -69,11 +69,11 @@ if (!$subCategoryResult) {
 </head>
 
 <body>
-    <?php include('commen/header.php'); ?>
+    <?php include('../commen/header.php'); ?>
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <?php include('commen/sidebar.php'); ?>
+                <?php include('../commen/sidebar.php'); ?>
                 <div class="span9">
                     <div class="content">
                         <div class="module">
@@ -160,7 +160,7 @@ if (!$subCategoryResult) {
             </div>
         </div>
     </div>
-    <?php include 'commen/footer.php'; ?>
+    <?php include '../commen/footer.php'; ?>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const form = document.getElementById("productForm");

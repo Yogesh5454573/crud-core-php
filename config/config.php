@@ -14,7 +14,7 @@ function parseEnv($file) {
     }
     return $env;
 }
-$env = parseEnv(__DIR__ . '/.env');
+$env = parseEnv(__DIR__ . '/../.env');
 $servername = $env['DB_HOST'] ?? null;
 $username   = $env['DB_USER'] ?? null;
 $password   = $env['DB_PASS'] ?? null;

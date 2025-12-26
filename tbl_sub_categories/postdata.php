@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-include '../config.php';
+include '../config/config.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
     $sub_category_name = trim($_POST['sub_category_name']);

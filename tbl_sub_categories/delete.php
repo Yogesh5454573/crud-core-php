@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include("../config.php"); 
+include("../config/config.php"); 
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     $_SESSION['error'] = "Invalid category ID."; 
     header("Location: manageSubCategory.php");

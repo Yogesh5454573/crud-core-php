@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-include 'config.php'; 
+include '../config/config.php'; 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $category_name = trim(htmlspecialchars($_POST['category_name']));
     $sub_category_name = trim(htmlspecialchars($_POST['sub_category_name']));

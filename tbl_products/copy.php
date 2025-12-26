@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php';
+include '../config/config.php';
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = (int)$_GET['id']; 
     $sql = "SELECT category_name, sub_category_name, product_name, product_details, product_color, product_price FROM products WHERE id = ?";

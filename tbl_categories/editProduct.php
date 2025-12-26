@@ -1,5 +1,5 @@
 <?php
-include("../config.php");
+include("../config/config.php");
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = intval($_GET['id']);
     $stmt = $conn->prepare("SELECT * FROM tbl_categories WHERE id = ?");

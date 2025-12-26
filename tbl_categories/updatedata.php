@@ -1,5 +1,5 @@
 <?php
-include '../config.php';
+include '../config/config.php';
 session_start(); 
 if (!isset($_GET['id']) || !filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
     $_SESSION["error"] = "Invalid request!";

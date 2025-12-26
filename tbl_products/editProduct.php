@@ -1,5 +1,5 @@
 <?php
-include("config.php");
+include("../config/config.php");
 session_start();
 $categoryQuery = "SELECT id, category_name FROM tbl_categories";
 $categoryResult = $conn->query($categoryQuery);
@@ -37,10 +37,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product - Edmin</title>
-    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="asset/css/theme.css">
-    <link rel="stylesheet" href="asset/images/icons/css/font-awesome.css">
+    <link rel="stylesheet" href="../asset/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../asset/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="../asset/css/theme.css">
+    <link rel="stylesheet" href="../asset/images/icons/css/font-awesome.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -53,11 +53,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 </head>
 
 <body>
-    <?php include('commen/header.php'); ?>
+    <?php include('../commen/header.php'); ?>
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <?php include('commen/sidebar.php'); ?>
+                <?php include('../commen/sidebar.php'); ?>
                 <div class="span9">
                     <div class="content">
                         <div class="module">
@@ -147,7 +147,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             </div>
         </div>
     </div>
-    <?php include('commen/footer.php'); ?>
+    <?php include('../commen/footer.php'); ?>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.getElementById("updatedata");

@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config/config.php';
 header('Content-Type: application/json');
 $response = [];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
