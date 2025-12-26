@@ -31,11 +31,11 @@ if (!$result) {
 </head>
 
 <body>
-    <?php include '../commen/header.php'; ?>
+    <?php include('commen/header.php'); ?>
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <?php include '../commen/sidebar.php'; ?>
+               <?php include('commen/sidebar.php'); ?>
                 <div class="span9">
                     <div class="content">
                         <div class="module">
@@ -78,7 +78,7 @@ if (!$result) {
                                     <div class="control-group">
                                         <div class="controls">
                                             <button type="submit" class="btn btn-primary">Submit</button>
-                                            <a href="postdata.php" class="btn btn-danger">Cancel</a>
+                                            <a href="manageSubCategory.php" class="btn btn-danger">Cancel</a>
                                         </div>
                                     </div>
                                 </form>
@@ -89,7 +89,7 @@ if (!$result) {
             </div>
         </div>
     </div>
-    <?php include '../commen/footer.php'; ?>
+    <?php include 'commen/footer.php'; ?>
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("subCategoryForm");

@@ -1,9 +1,15 @@
 <?php
 function parseEnv($file) {
+    if (!file_exists($file)) {
+        die(".env file not found at $file");
+    }
+
     $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     $env = [];
     foreach ($lines as $line) {
-        if (strpos(trim($line), '#') === 0) continue; // skip comments
+        $line = trim($line);
+        if ($line === '' || strpos($line, '#') === 0) continue; 
+        if (strpos($line, '=') === false) continue;
         [$key, $value] = explode('=', $line, 2);
         $env[trim($key)] = trim($value);
     }
@@ -12,16 +18,17 @@ function parseEnv($file) {
 
 $env = parseEnv(__DIR__ . '/.env');
 
-// Use variables
-$servername = $env['DB_HOST'];
-$username   = $env['DB_USER'];
-$password   = $env['DB_PASS'];
-$dbname     = $env['DB_NAME'];
+$servername = $env['DB_HOST'] ?? null;
+$username   = $env['DB_USER'] ?? null;
+$password   = $env['DB_PASS'] ?? null;
+$dbname     = $env['DB_NAME'] ?? null;
 
-// Create database connection
+if (!$servername || !$username || !$dbname) {
+    die("Database credentials not set correctly in .env");
+}
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

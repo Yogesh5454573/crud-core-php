@@ -50,11 +50,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 </head>
 
 <body>
-    <?php include('../commen/header.php'); ?>
+    <?php include('commen/header.php'); ?>
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <?php include('../commen/sidebar.php'); ?>
+                <?php include('commen/sidebar.php'); ?>
                 <div class="span9">
                     <div class="content">
                         <div class="module">
@@ -108,8 +108,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             </div>
         </div>
     </div>
-    <?php 
-    include('../commen/footer.php'); 
+   <?php include 'commen/footer.php'; ?>
     $conn->close();
     ?>
   <script>

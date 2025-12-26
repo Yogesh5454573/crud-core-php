@@ -1,17 +1,6 @@
-<?php
-session_start();
-include 'config.php';
-$sql = "SELECT * FROM products";
-$result = $conn->query($sql);
-if (!$result) {
-    echo "Error: " . $conn->error;
-    exit;
-}
-$rows = $result->fetch_all(MYSQLI_ASSOC);
-$i = 1;
-?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,83 +20,24 @@ $i = 1;
             <div class="row">
                 <?php include('commen/sidebar.php'); ?>
                 <div class="span9">
-
-                    <?php if (isset($_SESSION["success"])): ?>
-                    <div class="alert alert-success flash-message">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong>Well done!</strong>
-                        <?php
-                        $messages = [
-                                'added' => 'Data Added Successfully',
-                                'updated' => 'Data Updated Successfully',
-                                'copied' => 'Data Copied Successfully',
-                                'deleted' => 'Data Deleted Successfully'
-                              ];
-                            echo $messages[$_SESSION['success']] ?? 'Action Completed Successfully';
-                          ?>
-                    </div>
-                    <?php unset($_SESSION["success"]); ?>
-                    <?php endif; ?>
-
-                    <div class="module">
-                        <div class="module-head">
-                            <h3>Manage Products</h3>
-                            <div style="text-align: right; margin-top: -25px;">
-                                <a href="addProduct.php">
-                                    <button class="btn btn-primary">Add Product</button>
+                    <div class="content">
+                        <div class="btn-controls">
+                            <div class="btn-box-row row-fluid">
+                                <a href="#" class="btn-box big span4"><i class=" icon-random"></i><b>65%</b>
+                                    <p class="text-muted">
+                                        Growth</p>
+                                </a><a href="#" class="btn-box big span4"><i class="icon-user"></i><b>15</b>
+                                    <p class="text-muted">
+                                        New Users</p>
+                                </a><a href="#" class="btn-box big span4"><i class="icon-money"></i><b>15,152</b>
+                                    <p class="text-muted">
+                                        Profit</p>
                                 </a>
                             </div>
                         </div>
-
-                        <div class="module-body table">
-                            <table id="productsTable" class="datatable-1 table table-bordered table-striped display"
-                                width="100%">
-                                <thead>
-                                    <tr>
-                                        <th>Sr.No</th>
-                                        <th>Product Category</th>
-                                        <th>Product Sub-Category</th>
-                                        <th>Product Name</th>
-                                        <th>Product Details</th>
-                                        <th>Product Color</th>
-                                        <th>Product Price ($)</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($rows as $row) { ?>
-                                    <tr>
-                                        <td><?php echo $i++; ?></td>
-                                        <td><?php echo htmlspecialchars($row["category_name"]); ?></td>
-                                        <td><?php echo htmlspecialchars($row["sub_category_name"]); ?></td>
-                                        <td><?php echo htmlspecialchars($row["product_name"]); ?></td>
-                                        <td><?php echo htmlspecialchars($row["product_details"]); ?></td>
-                                        <td><?php echo htmlspecialchars($row["product_color"]); ?></td>
-                                        <td><?php echo number_format((float)$row["product_price"], 2, '.', ''); ?></td>
-                                        <td class="d-flex justify-content-center align-items-center gap-3">
-                                            <a href="editProduct.php?id=<?php echo $row['id']; ?>"
-                                                class="fa fa-edit text-primary" style="font-size: 20px;"
-                                                title="Edit Product"></a>
-
-                                            <a href="delete.php?id=<?php echo $row['id']; ?>"
-                                                class="material-icons text-danger" style="font-size: 22px;"
-                                                onclick="return confirm('Are you sure you want to delete this product?');"
-                                                title="Delete Product">delete</a>
-
-                                            <a href="copy.php?id=<?php echo $row['id']; ?>"
-                                                class="fa fa-copy text-success" style="font-size: 20px;"
-                                                onclick="return confirm('Are you sure you want to copy this product?');"
-                                                title="Copy Product"></a>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-
                     </div>
-
                 </div>
+
             </div>
         </div>
     </div>
@@ -116,10 +46,6 @@ $i = 1;
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="scripts/datatables/jquery.dataTables.js"></script>
     <script src="scripts/common.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('#productsTable').DataTable();
-    });
-    </script>
 </body>
+
 </html>

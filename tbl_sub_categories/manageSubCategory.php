@@ -28,21 +28,20 @@ $stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Sub-Categories</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="images/icons/css/font-awesome.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="css/theme.css" rel="stylesheet">
+    <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <?php include('../commen/header.php'); ?>
+    <?php include('commen/header.php'); ?>
 
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <?php include('../commen/sidebar.php'); ?>
+                <?php include('commen/sidebar.php'); ?>
 
                 <div class="span9">
                     <?php if (isset($_SESSION["success"])): ?>
@@ -117,7 +116,7 @@ $stmt->close();
         </div> <!-- End of container -->
     </div> <!-- End of wrapper -->
 
-    <?php include '../commen/footer.php';?>
+   <?php include 'commen/footer.php'; ?>
 
     <!-- JavaScript Imports -->
     <script src="scripts/jquery-1.9.1.min.js"></script>

@@ -5,7 +5,7 @@
 					<i class="icon-reorder shaded"></i>
 				</a>
 
-			  	<a class="brand" href="index.php">
+			  	<a class="brand" href="manageCategory.php">
 			  		PMS
 			  	</a>
 
