@@ -25,7 +25,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     header("Location: manageProduct.php");
     exit;
 }
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $category_name = trim($_POST['category_name'] ?? '');
     $sub_category_name = trim($_POST['sub_category_name'] ?? '');
@@ -38,8 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: editProduct.php?id=" . $id);
         exit;
     }
-
-    // Update query using prepared statement
     $update_sql = "UPDATE products SET 
         category_name = ?, 
         sub_category_name = ?, 
@@ -48,11 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         product_color = ?, 
         product_price = ?
         WHERE id = ?";
-
     if ($stmt = $conn->prepare($update_sql)) {
-        // Bind parameters (ensuring correct order and data types)
         $stmt->bind_param("sssssdi", $category_name, $sub_category_name, $product_name, $product_details, $product_color, $product_price, $id);
-
         if ($stmt->execute()) {
             $_SESSION["success"] = "updated";
             header("Location: manageProduct.php");
@@ -65,7 +59,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["error"] = "Error preparing query: " . $conn->error;
     }
 }
-
-// Close the database connection
 $conn->close();
 ?>

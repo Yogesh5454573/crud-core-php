@@ -49,7 +49,7 @@ if (!$subCategoryResult) {
                             true);
                     },
                     success: function(response) {
-                        console.log("Response from PHP:", response); // Debug response
+                        console.log("Response from PHP:", response); 
                         $subCategory.html(response).prop("disabled", false);
                     },
                     error: function(xhr, status, error) {

@@ -99,9 +99,7 @@ $i = 1;
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>

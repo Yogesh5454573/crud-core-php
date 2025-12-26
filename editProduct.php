@@ -155,7 +155,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 let isValid = true;
 
                 function showError(input, message) {
-                    let parent = input.closest(".controls"); // Targeting the correct parent container
+                    let parent = input.closest(".controls"); 
                     let errorSpan = parent.querySelector(".error-message");
                     if (!errorSpan) {
                         errorSpan = document.createElement("span");
@@ -170,7 +170,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
                 function clearError(input) {
                     let parent = input.closest(".controls");
-                    if (!parent) return; // Prevent errors if no parent exists
+                    if (!parent) return; 
                     let errorSpan = parent.querySelector(".error-message");
                     if (errorSpan) {
                         errorSpan.style.display = "none";

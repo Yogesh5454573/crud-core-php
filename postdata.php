@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $product_details = trim(htmlspecialchars($_POST['product_details']));
     $product_type = trim(htmlspecialchars($_POST['product_type']));
     $product_color = trim(htmlspecialchars($_POST['product_color']));
-    $product_price = floatval($_POST['product_price']); // Convert price to float
+    $product_price = floatval($_POST['product_price']); 
     $sql = "INSERT INTO products (category_name, sub_category_name, product_name, product_details, product_color, product_price) 
             VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
