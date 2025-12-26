@@ -33,11 +33,11 @@ $i = 1;
 </head>
 
 <body>
-    <?php include('commen/header.php'); ?>
+    <?php include('../commen/header.php'); ?>
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <?php include('commen/sidebar.php'); ?>
+                <?php include('../commen/sidebar.php'); ?>
                 <div class="span9">
                     <?php if (isset($_SESSION["success"])): ?>
                     <div class="alert alert-success flash-message">
@@ -113,7 +113,7 @@ $i = 1;
         </div>
     </div>
 
-   <?php include 'commen/footer.php'; ?>
+   <?php include '../commen/footer.php'; ?>
     <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

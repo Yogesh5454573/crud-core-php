@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +13,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-    .error-message {
-        color: red;
-        font-size: 14px;
-        margin-top: 5px;
-    }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
     </style>
 </head>
+
 <body>
-    <?php include '../commen/header.php'; ?>
+    <?php include('../commen/header.php'); ?>
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <?php include '../commen/sidebar.php'; ?>
+                <?php include('../commen/sidebar.php'); ?>
                 <div class="span9">
                     <div class="content">
                         <div class="module">
@@ -60,63 +62,66 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div> 
-                        </div> 
-                    </div> 
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
     <?php include '../commen/footer.php'; ?>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.getElementById("categoryForm");
-        form.addEventListener("submit", function(event) {
-            let isValid = true;
-            function showError(input, message) {
-                let errorSpan = input.parentElement.querySelector(".error-message");
-                if (!errorSpan) {
-                    errorSpan = document.createElement("span");
-                    errorSpan.classList.add("error-message");
-                    input.parentElement.appendChild(errorSpan);
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("categoryForm");
+            form.addEventListener("submit", function(event) {
+                let isValid = true;
+
+                function showError(input, message) {
+                    let errorSpan = input.parentElement.querySelector(".error-message");
+                    if (!errorSpan) {
+                        errorSpan = document.createElement("span");
+                        errorSpan.classList.add("error-message");
+                        input.parentElement.appendChild(errorSpan);
+                    }
+                    errorSpan.textContent = message;
+                    errorSpan.style.display = "block";
+                    input.classList.add("has-error");
+                    isValid = false;
                 }
-                errorSpan.textContent = message;
-                errorSpan.style.display = "block";
-                input.classList.add("has-error");
-                isValid = false;
-            }
-            function clearError(input) {
-                let errorSpan = input.parentElement.querySelector(".error-message");
-                if (errorSpan) {
-                    errorSpan.textContent = "";
+
+                function clearError(input) {
+                    let errorSpan = input.parentElement.querySelector(".error-message");
+                    if (errorSpan) {
+                        errorSpan.textContent = "";
+                    }
+                    input.classList.remove("has-error");
                 }
-                input.classList.remove("has-error");
-            }
-            const category_name = document.getElementById("category_name");
-            if (category_name.value.trim() === "") {
-                showError(category_name, "*Category Name is required.");
-            } else {
-                clearError(category_name);
-            }
-            if (!isValid) {
-                event.preventDefault();
-            }
-            const categoryDescription = document.getElementById("c_description");
-            if (categoryDescription.value.trim() === "") {
-                showError(categoryDescription, "*Category Description is required.");
-            } else {
-                clearError(categoryDescription);
-            }
-            if (!isValid) {
-                event.preventDefault();
-            }
-        });
-        document.querySelectorAll("input, textarea").forEach(input => {
-            input.addEventListener("input", function() {
-                clearError(input);
+                const category_name = document.getElementById("category_name");
+                if (category_name.value.trim() === "") {
+                    showError(category_name, "*Category Name is required.");
+                } else {
+                    clearError(category_name);
+                }
+                if (!isValid) {
+                    event.preventDefault();
+                }
+                const categoryDescription = document.getElementById("c_description");
+                if (categoryDescription.value.trim() === "") {
+                    showError(categoryDescription, "*Category Description is required.");
+                } else {
+                    clearError(categoryDescription);
+                }
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+            document.querySelectorAll("input, textarea").forEach(input => {
+                input.addEventListener("input", function() {
+                    clearError(input);
+                });
             });
         });
-    });
     </script>
 </body>
+
 </html>

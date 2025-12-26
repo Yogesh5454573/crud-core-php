@@ -31,11 +31,11 @@ if (!$result) {
 </head>
 
 <body>
-    <?php include('commen/header.php'); ?>
+    <?php include('../commen/header.php'); ?>
     <div class="wrapper">
         <div class="container">
             <div class="row">
-               <?php include('commen/sidebar.php'); ?>
+               <?php include('../commen/sidebar.php'); ?>
                 <div class="span9">
                     <div class="content">
                         <div class="module">
@@ -89,7 +89,7 @@ if (!$result) {
             </div>
         </div>
     </div>
-    <?php include 'commen/footer.php'; ?>
+    <?php include '../commen/footer.php'; ?>
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("subCategoryForm");

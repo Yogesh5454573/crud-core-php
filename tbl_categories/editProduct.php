@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("config.php");
 
 // Validate and fetch category data securely
@@ -43,11 +43,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-    .error-message {
-        color: red;
-        font-size: 14px;
-        margin-top: 5px;
-    }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 
@@ -104,55 +104,54 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         </div>
     </div>
 
-    <?php 
-    include('../commen/footer.php'); 
+    <?php include '../commen/footer.php';
     $conn->close();
     ?>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.getElementById("updatedata");
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("updatedata");
 
-        form.addEventListener("submit", function(event) {
-            let isValid = true;
+            form.addEventListener("submit", function(event) {
+                let isValid = true;
 
-            // Fetch form elements
-            const categoryName = document.querySelector("input[name='category_name']");
-            const categoryDescription = document.querySelector("textarea[name='c_description']");
+                // Fetch form elements
+                const categoryName = document.querySelector("input[name='category_name']");
+                const categoryDescription = document.querySelector("textarea[name='c_description']");
 
-            // Clear previous error messages
-            document.querySelectorAll(".error-message").forEach(el => el.remove());
+                // Clear previous error messages
+                document.querySelectorAll(".error-message").forEach(el => el.remove());
 
-            // Validate category name (only letters and spaces)
-            const namePattern = /^[a-zA-Z\s]+$/;
-            if (!categoryName.value.trim()) {
-                showError(categoryName, "*Category name is required.");
-                isValid = false;
-            } else if (!namePattern.test(categoryName.value)) {
-                showError(categoryName, "*Category name should contain only letters and spaces.");
-                isValid = false;
-            }
+                // Validate category name (only letters and spaces)
+                const namePattern = /^[a-zA-Z\s]+$/;
+                if (!categoryName.value.trim()) {
+                    showError(categoryName, "*Category name is required.");
+                    isValid = false;
+                } else if (!namePattern.test(categoryName.value)) {
+                    showError(categoryName, "*Category name should contain only letters and spaces.");
+                    isValid = false;
+                }
 
-            // Validate category description (not empty)
-            if (!categoryDescription.value.trim()) {
-                showError(categoryDescription, "*Category description is required.");
-                isValid = false;
-            }
+                // Validate category description (not empty)
+                if (!categoryDescription.value.trim()) {
+                    showError(categoryDescription, "*Category description is required.");
+                    isValid = false;
+                }
 
-            // Prevent form submission if validation fails
-            if (!isValid) {
-                event.preventDefault();
+                // Prevent form submission if validation fails
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+
+            // Function to display error messages
+            function showError(inputElement, message) {
+                const errorMessage = document.createElement("div");
+                errorMessage.className = "error-message text-danger";
+                errorMessage.style.fontSize = "14px";
+                errorMessage.textContent = message;
+                inputElement.parentNode.appendChild(errorMessage);
             }
         });
-
-        // Function to display error messages
-        function showError(inputElement, message) {
-            const errorMessage = document.createElement("div");
-            errorMessage.className = "error-message text-danger";
-            errorMessage.style.fontSize = "14px";
-            errorMessage.textContent = message;
-            inputElement.parentNode.appendChild(errorMessage);
-        }
-    });
     </script>
 
 </body>
