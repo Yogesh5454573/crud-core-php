@@ -1,17 +1,13 @@
 <?php
 include '../config.php';
-session_start(); // Ensure session is started
-
-// Validate ID from GET request
+session_start(); 
 if (!isset($_GET['id']) || !filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
     $_SESSION["error"] = "Invalid request!";
     header("Location: manageSubCategory.php");
     exit();
 }
 
-$id = (int)$_GET['id']; // Securely cast to integer
-
-// Fetch existing category details securely
+$id = (int)$_GET['id'];
 $sql = "SELECT * FROM tbl_categories WHERE id = ?";
 if ($stmt = $conn->prepare($sql)) {
     $stmt->bind_param("i", $id);
@@ -23,7 +19,6 @@ if ($stmt = $conn->prepare($sql)) {
         header("Location: manageSubCategory.php");
         exit();
     }
-    
     $row = $result->fetch_assoc();
     $stmt->close();
 } else {
@@ -31,25 +26,17 @@ if ($stmt = $conn->prepare($sql)) {
     header("Location: manageSubCategory.php");
     exit();
 }
-
-// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $category_name = htmlspecialchars(trim($_POST['category_name']));
     $c_description = htmlspecialchars(trim($_POST['c_description']));
-
-    // Validate inputs
     if (empty($category_name) || empty($c_description)) {
         $_SESSION["error"] = "All fields are required!";
         header("Location: editCategory.php?id=" . $id);
         exit();
     }
-
-    // Update query using prepared statement
     $update_sql = "UPDATE tbl_categories SET category_name = ?, c_description = ? WHERE id = ?";
-    
     if ($stmt = $conn->prepare($update_sql)) {
         $stmt->bind_param("ssi", $category_name, $c_description, $id);
-        
         if ($stmt->execute()) {
             $_SESSION["success"] = "updated";
             header("Location: manageCategory.php");
@@ -59,7 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: editCategory.php?id=" . $id);
             exit();
         }
-        
         $stmt->close();
     } else {
         $_SESSION["error"] = "Database error: " . $conn->error;
@@ -67,7 +53,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit();
     }
 }
-
-// Close the database connection
 $conn->close();
 ?>

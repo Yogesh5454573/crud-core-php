@@ -1,30 +1,20 @@
 <?php
-session_start(); // Start session to store messages
-
+session_start(); 
 include("../config.php");
-
-// Check if 'id' is set and is a valid integer
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $id = intval($_GET['id']); // Convert to integer to prevent injection
-
-    // Prepare SQL statement to prevent SQL injection
+    $id = intval($_GET['id']);
     $stmt = $conn->prepare("DELETE FROM tbl_categories WHERE id = ?");
-    $stmt->bind_param("i", $id); // Bind integer parameter
-
+    $stmt->bind_param("i", $id); 
     if ($stmt->execute()) {
-        $_SESSION['success'] = "deleted"; // Store success message in session
+        $_SESSION['success'] = "deleted"; 
     } else {
-        $_SESSION['error'] = "Error deleting product."; // Store error message
+        $_SESSION['error'] = "Error deleting product."; 
     }
-
-    $stmt->close(); // Close statement
+    $stmt->close();
 } else {
-    $_SESSION['error'] = "Invalid product ID."; // Handle invalid or missing ID
+    $_SESSION['error'] = "Invalid product ID."; 
 }
-
 $conn->close();
-
-// Redirect back to manageProduct.php with session message
 header("Location: manageCategory.php");
-exit; // Ensure script stops here
+exit; 
 ?>
