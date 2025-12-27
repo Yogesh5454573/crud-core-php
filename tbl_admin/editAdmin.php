@@ -2,19 +2,19 @@
 include '../config/config.php';
 
 if (!isset($_GET['id'])) {
-    header("Location: manageUser.php");
+    header("Location: manageAdmin.php");
     exit();
 }
 
 $id = $_GET['id'];
 
-$stmt = $conn->prepare("SELECT * FROM tbl_users WHERE id = ?");
+$stmt = $conn->prepare("SELECT * FROM tbl_admin WHERE id = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows == 0) {
-    header("Location: manageUser.php");
+    header("Location: manageAdmin.php");
     exit();
 }
 
@@ -54,13 +54,13 @@ $stmt->close();
                     <div class="content">
                         <div class="module">
                             <div class="module-head">
-                                <h3>Edit User</h3>
+                                <h3>Edit Admin</h3>
                                 <div style="text-align: right; margin-top: -25px;">
-                                    <a href="manageUser.php" class="btn btn-success">Users</a>
+                                    <a href="manageUser.php" class="btn btn-success">Admins</a>
                                 </div>
                             </div>
                             <div class="module-body">
-                                <form class="form-horizontal row-fluid" method="POST" action="updateUserData.php">
+                                <form class="form-horizontal row-fluid" method="POST" action="updateAdminData.php">
                                     <input type="hidden" name="id" value="<?= $user['id']; ?>">
 
                                     <div class="control-group">

@@ -8,6 +8,12 @@
                 </a>
             </li>
             <li>
+                <a href="/tbl_admin/manageAdmin.php">
+                    <i class="menu-icon icon-tasks"></i>
+                    Manage Admin
+                </a>
+            </li>
+            <li>
                 <a href="/tbl_users/manageUser.php">
                     <i class="menu-icon icon-tasks"></i>
                     Manage Users

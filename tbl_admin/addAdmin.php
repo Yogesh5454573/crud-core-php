@@ -1,27 +1,3 @@
-<?php
-include '../config/config.php';
-
-if (!isset($_GET['id'])) {
-    header("Location: manageUser.php");
-    exit();
-}
-
-$id = $_GET['id'];
-
-$stmt = $conn->prepare("SELECT * FROM tbl_users WHERE id = ?");
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows == 0) {
-    header("Location: manageUser.php");
-    exit();
-}
-
-$user = $result->fetch_assoc();
-$stmt->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,51 +30,44 @@ $stmt->close();
                     <div class="content">
                         <div class="module">
                             <div class="module-head">
-                                <h3>Edit User</h3>
+                                <h3>Add Admin</h3>
                                 <div style="text-align: right; margin-top: -25px;">
-                                    <a href="manageUser.php" class="btn btn-success">Users</a>
+                                    <a href="manageAdmin.php" class="btn btn-success">Admins</a>
                                 </div>
                             </div>
                             <div class="module-body">
-                                <form class="form-horizontal row-fluid" method="POST" action="updateUserData.php">
-                                    <input type="hidden" name="id" value="<?= $user['id']; ?>">
-
+                                <form id="subCategoryForm" class="form-horizontal row-fluid" method="POST" action="postAdminData.php">
                                     <div class="control-group">
-                                        <label class="control-label">Name</label>
+                                        <label class="control-label">Enter Name</label>
                                         <div class="controls">
-                                            <input type="text" name="name" class="span8" value="<?= $user['name']; ?>">
+                                            <input type="text" id="name" name="name" placeholder="Enter Name" class="span8">
                                         </div>
                                     </div>
-
                                     <div class="control-group">
-                                        <label class="control-label">Email</label>
+                                        <label class="control-label">Enter Email</label>
                                         <div class="controls">
-                                            <input type="email" name="email" class="span8" value="<?= $user['email']; ?>">
+                                            <input type="text" id="email" name="email" placeholder="Enter Email" class="span8">
                                         </div>
                                     </div>
-
                                     <div class="control-group">
-                                        <label class="control-label">Mobile</label>
+                                        <label class="control-label">Enter Mobile</label>
                                         <div class="controls">
-                                            <input type="text" name="mobile" class="span8" value="<?= $user['mobile']; ?>">
+                                            <input type="text" id="mobile" name="mobile" placeholder="Enter Mobile" class="span8">
                                         </div>
                                     </div>
-
                                     <div class="control-group">
-                                        <label class="control-label">Password</label>
+                                        <label class="control-label">Enter Password</label>
                                         <div class="controls">
-                                            <input type="text" name="password" class="span8">
+                                            <input type="text" id="password" name="password" placeholder="Enter Password" class="span8">
                                         </div>
                                     </div>
-
                                     <div class="control-group">
                                         <div class="controls">
-                                            <button type="submit" class="btn btn-primary">Update</button>
-                                            <a href="manageUser.php" class="btn btn-danger">Cancel</a>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <a href="manageAdmin.php" class="btn btn-danger">Cancel</a>
                                         </div>
                                     </div>
                                 </form>
-
                             </div>
                         </div>
                     </div>
